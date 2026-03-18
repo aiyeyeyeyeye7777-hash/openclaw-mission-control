@@ -292,7 +292,22 @@
       "createdAt": "2026-03-18T06:51:22.277Z",
       "isTemplate": true,
       "baseStatus": "backlog",
-      "executionCount": 0
+      "executionCount": 1
+    },
+    {
+      "id": "task_1773816744816",
+      "title": "测试：Mission Control 自动执行",
+      "description": "请确认你已收到这个来自 Mission Control 的任务。\n1. 先回复一句“我已收到任务”\n2. 检查当前工作区路径\n3. 添加一条评论说明结果\n4. 完成后把任务移到待审核",
+      "project": "",
+      "tags": [
+        ""
+      ],
+      "subtasks": [],
+      "priority": "high",
+      "createdAt": "2026-03-18T06:52:24.816Z",
+      "isTemplate": false,
+      "status": "backlog",
+      "createdFromTemplate": "template_1773816682277"
     }
   ],
   "projects": [

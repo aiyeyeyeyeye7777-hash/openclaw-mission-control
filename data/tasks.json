@@ -306,8 +306,9 @@
       "priority": "high",
       "createdAt": "2026-03-18T06:52:24.816Z",
       "isTemplate": false,
-      "status": "backlog",
-      "createdFromTemplate": "template_1773816682277"
+      "status": "in_progress",
+      "createdFromTemplate": "template_1773816682277",
+      "sortOrder": 0
     }
   ],
   "projects": [
@@ -326,6 +327,14 @@
   ],
   "activities": [
     {
+      "type": "moved",
+      "actor": "aiyeyeyeyeye7777-hash",
+      "task": "测试：Mission Control 自动执行",
+      "from": "backlog",
+      "to": "in_progress",
+      "time": "just now"
+    },
+    {
       "type": "created",
       "actor": "Mission Control",
       "task": "Onboarding Guide",
@@ -338,5 +347,5 @@
       "time": "just now"
     }
   ],
-  "lastUpdated": "2026-03-18T06:51:22.277Z"
+  "lastUpdated": "2026-03-18T06:52:33.705Z"
 }

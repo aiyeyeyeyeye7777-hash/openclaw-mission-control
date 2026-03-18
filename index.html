@@ -2163,8 +2163,8 @@
             </div>
             <nav class="nav-tabs">
                 <div class="nav-tab active" data-view="tasks" onclick="switchView('tasks')">任务</div>
-                <div class="nav-tab" data-view="docs" onclick="switchView('docs')">Docs</div>
-                <div class="nav-tab" data-view="people" onclick="switchView('people')">People</div>
+                <div class="nav-tab" data-view="docs" onclick="switchView('docs')">文档</div>
+                <div class="nav-tab" data-view="people" onclick="switchView('people')">成员</div>
             </nav>
             
             <!-- Search -->
@@ -2173,7 +2173,7 @@
                     <input type="text" 
                            id="search-input" 
                            class="search-input" 
-                           placeholder="Search 个任务s..." 
+                           placeholder="搜索任务..." 
                            oninput="handleSearch(this.value)"
                            onkeydown="if(event.key==='Escape'){clearSearch()}">
                     <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2185,13 +2185,13 @@
                 <span class="search-info" id="search-info"></span>
                 <label class="archive-search-toggle" title="Include archived 个任务s in search">
                     <input type="checkbox" id="search-include-archived" onchange="toggleArchiveSearch(this.checked)">
-                    <span>📦 Archive</span>
+                    <span>📦 归档</span>
                 </label>
             </div>
         </div>
         <div class="header-right">
             <span class="live-indicator live" id="live-indicator">Live</span>
-            <button class="btn btn-secondary" onclick="pollForUpdates(); window.location.reload()">↻ Refresh</button>
+            <button class="btn btn-secondary" onclick="pollForUpdates(); window.location.reload()">↻ 刷新</button>
 
             <!-- Not Logged In -->
             <button class="btn btn-github" id="btn-connect" onclick="showAuthModal()">
@@ -2206,7 +2206,7 @@
                 <img class="user-avatar" id="user-avatar" src="" alt="Avatar">
                 <span class="user-name" id="user-name"></span>
                 <button class="btn-icon" onclick="show设置Modal()" title="设置">⚙️</button>
-                <span class="user-logout" onclick="logout()">Logout</span>
+                <span class="user-logout" onclick="logout()">退出登录</span>
             </div>
         </div>
     </header>
@@ -2238,24 +2238,24 @@
     <div class="stats-bar">
         <div class="stat">
             <span class="stat-value" id="stat-week">0</span>
-            <span class="stat-label">This week</span>
+            <span class="stat-label">本周</span>
         </div>
         <div class="stat">
             <span class="stat-value" id="stat-progress">0</span>
-            <span class="stat-label">In progress</span>
+            <span class="stat-label">进行中</span>
         </div>
         <div class="stat">
             <span class="stat-value" id="stat-total">0</span>
-            <span class="stat-label">Total</span>
+            <span class="stat-label">总数</span>
         </div>
         <div class="stat">
             <span class="stat-value stat-highlight" id="stat-completion">0%</span>
-            <span class="stat-label">Completion</span>
+            <span class="stat-label">完成率</span>
         </div>
     </div>
 
     <div class="filters" id="filters">
-        <button class="filter-btn active" data-filter="all">All projects</button>
+        <button class="filter-btn active" data-filter="all">全部项目</button>
     </div>
 
     <main class="main">
@@ -2263,7 +2263,7 @@
             <div class="column column-recurring">
                 <div class="column-header">
                     <div class="column-dot recurring"></div>
-                    <span class="column-title">Recurring</span>
+                    <span class="column-title">循环任务</span>
                     <span class="column-count" id="count-recurring">0</span>
                 </div>
                 <div class="column-tasks" id="tasks-recurring" ondragover="handleCronDragOver(event)" ondragleave="handleCronDragLeave(event)" ondrop="handleCronDrop(event)"></div>
@@ -2272,9 +2272,9 @@
             <div class="column column-scheduled">
                 <div class="column-header">
                     <div class="column-dot scheduled"></div>
-                    <span class="column-title">📅 Scheduled</span>
+                    <span class="column-title">📅 定时任务</span>
                     <span class="column-count" id="count-scheduled">0</span>
-                    <span class="column-add" onclick="openScheduledTaskModal()" title="Schedule a 个任务">+</span>
+                    <span class="column-add" onclick="openScheduledTaskModal()" title="安排定时任务">+</span>
                 </div>
                 <div class="column-tasks" id="tasks-scheduled" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, 'scheduled')"></div>
             </div>
@@ -2282,7 +2282,7 @@
             <div class="column column-templates">
                 <div class="column-header">
                     <div class="column-dot templates"></div>
-                    <span class="column-title">📑 Templates</span>
+                    <span class="column-title">📑 模板</span>
                     <span class="column-count" id="count-templates">0</span>
                     <span class="column-add" onclick="openNewTemplate()" title="Add new template">+</span>
                 </div>
@@ -2292,7 +2292,7 @@
             <div class="column">
                 <div class="column-header">
                     <div class="column-dot permanent"></div>
-                    <span class="column-title">Permanent</span>
+                    <span class="column-title">永久</span>
                     <span class="column-count" id="count-permanent">0</span>
                     <span class="column-add" onclick="openNewTask('permanent')" title="Add new 个任务">+</span>
                 </div>
@@ -2334,8 +2334,8 @@
                     <div class="column-dot done"></div>
                     <span class="column-title">已完成</span>
                     <span class="column-count" id="count-done">0</span>
-                    <button class="archive-all-btn" onclick="showArchiveView()" title="View archived 个任务s" style="background: transparent;">📂 View</button>
-                    <button class="archive-all-btn" onclick="archiveAllDone()" title="Archive all done 个任务s">📦 全部归档</button>
+                    <button class="archive-all-btn" onclick="showArchiveView()" title="查看已归档任务" style="background: transparent;">📂 View</button>
+                    <button class="archive-all-btn" onclick="archiveAllDone()" title="归档全部已完成任务">📦 全部归档</button>
                 </div>
                 <div class="column-tasks" id="tasks-done" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, 'done')"></div>
             </div>
@@ -2343,7 +2343,7 @@
 
         <aside class="activity" id="activity-sidebar">
             <div class="activity-header">
-                <span>ACTIVITY</span>
+                <span>动态</span>
                 <button class="activity-toggle" onclick="toggleActivity()" title="Hide Activity">
                     <span id="activity-toggle-icon">✕</span>
                 </button>
@@ -2351,7 +2351,7 @@
             <div class="activity-list" id="activity-list"></div>
         </aside>
         <button class="activity-reopen" id="activity-reopen" onclick="toggleActivity()" title="Show Activity">
-            ACTIVITY
+            动态
         </button>
     </main>
 
@@ -2399,7 +2399,7 @@
                     任务控制台 uses a Kanban-style board with 5 columns:
                 </p>
                 <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 1.5rem;">
-                    <li><strong>🔄 Permanent</strong> - Repeating 个任务s (daily, weekly checks)</li>
+                    <li><strong>🔄 永久</strong> - Repeating 个任务s (daily, weekly checks)</li>
                     <li><strong>📋 Backlog</strong> - Tasks waiting to be started</li>
                     <li><strong>🚀 In Progress</strong> - Currently being worked on</li>
                     <li><strong>👀 Review</strong> - Done, awaiting approval</li>
@@ -2467,7 +2467,7 @@
                     </tr>
                     <tr style="border-bottom: 1px solid var(--border-color);">
                         <td style="padding: 0.5rem; color: var(--text-secondary);"><code>Escape</code></td>
-                        <td style="padding: 0.5rem;">Close modals</td>
+                        <td style="padding: 0.5rem;">关闭 modals</td>
                     </tr>
                     <tr style="border-bottom: 1px solid var(--border-color);">
                         <td style="padding: 0.5rem; color: var(--text-secondary);"><code>Enter</code></td>
@@ -2705,7 +2705,7 @@
                     <div class="form-group">
                         <label class="form-label">Status</label>
                         <select class="form-input" id="task-status">
-                            <option value="permanent">Permanent</option>
+                            <option value="permanent">永久</option>
                             <option value="scheduled">Scheduled</option>
                             <option value="backlog">待办</option>
                             <option value="in_progress">进行中</option>
@@ -3176,7 +3176,7 @@
             }
 
             STATE.isLoading = true;
-            showToast('success', '📥 Loading 个任务s from GitHub...');
+            showToast('success', '📥 正在从 GitHub 加载任务...');
 
             try {
                 const response = await fetch(
@@ -3190,7 +3190,7 @@
                 );
 
                 if (!response.ok) {
-                    throw new Error('Could not load 个任务s file');
+                    throw new Error('无法读取任务文件');
                 }
 
                 const fileData = await response.json();
@@ -3203,12 +3203,12 @@
                 STATE.originalData = JSON.parse(JSON.stringify(data));
                 STATE.fileSha = fileData.sha;  // Needed for updates
 
-                console.log('Loaded 个任务s from GitHub:', data.tasks.length, 'tasks');
-                showToast('success', `✓ Loaded ${data.tasks.length} 个任务s from GitHub`);
+                console.log('已从 GitHub 加载任务:', data.tasks.length, 'tasks');
+                showToast('success', `✓ 已从 GitHub 加载 ${data.tasks.length} 个任务`);
 
             } catch (error) {
                 console.error('Error loading from GitHub:', error);
-                showToast('error', 'Could not load from GitHub, using cached data');
+                showToast('error', '无法从 GitHub 加载数据，已改用本地缓存');
                 STATE.data = JSON.parse(JSON.stringify(FALLBACK_DATA));
             }
 
@@ -3218,7 +3218,7 @@
 
         async function saveTasksToGitHub(commitMessage) {
             if (!STATE.token || !STATE.data) {
-                showToast('error', 'Not logged in');
+                showToast('error', '尚未登录 GitHub');
                 return false;
             }
 
@@ -3235,7 +3235,7 @@
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            message: commitMessage || 'Update 个任务s via 任务控制台',
+                            message: commitMessage || '通过任务控制台更新任务',
                             content: content,
                             sha: STATE.fileSha,
                             branch: CONFIG.branch
@@ -3254,12 +3254,12 @@
                 STATE.hasUnsavedChanges = false;
                 document.getElementById('unsaved-banner').classList.remove('visible');
 
-                showToast('success', '✓ Saved to GitHub!');
+                showToast('success', '✓ 已保存到 GitHub');
                 return true;
 
             } catch (error) {
                 console.error('Error saving to GitHub:', error);
-                showToast('error', `Failed to save: ${error.message}`);
+                showToast('error', `保存失败： ${error.message}`);
                 return false;
             }
         }
@@ -3339,7 +3339,7 @@
         // Save crons to GitHub (for fallback when Gateway unavailable)
         async function saveCronsToGitHub(commitMessage) {
             if (!STATE.token) {
-                showToast('error', 'Not logged in - cannot save crons');
+                showToast('error', '尚未登录 GitHub - cannot save crons');
                 return false;
             }
             
@@ -3707,7 +3707,7 @@
                 let 个任务s = data.tasks.filter(t => t.status === status && !t.isTemplate && t.status !== 'scheduled');
 
                 // Filter out archived 个任务s (unless searching with archive enabled)
-                if (!(showArchivedInSearch && searchQuery)) {
+                if (!(show已归档InSearch && searchQuery)) {
                     个任务s = 个任务s.filter(t => !t.archived);
                 }
 
@@ -3775,8 +3775,8 @@
 
         function renderTaskCard(task) {
             const subtasksDone = 个任务.subtasks.filter(s => s.done).length;
-            const subtasksTotal = 个任务.subtasks.length;
-            const progress = subtasksTotal > 0 ? Math.round((subtasksDone / subtasksTotal) * 100) : 0;
+            const subtasks总数 = 个任务.subtasks.length;
+            const progress = subtasks总数 > 0 ? Math.round((subtasksDone / subtasks总数) * 100) : 0;
             const commentsCount = (task.comments || []).length;
             const is已归档 = 个任务.archived === true;
 
@@ -3791,7 +3791,7 @@
             // Archive/Unarchive actions for done 个任务s
             const archiveActions = 个任务.status === 'done' && !is已归档 ? `
                 <div class="task-actions" onclick="event.stopPropagation()">
-                    <button class="task-action-btn archive" onclick="archiveTask('${task.id}')" title="归档此任务">📦 Archive</button>
+                    <button class="task-action-btn archive" onclick="archiveTask('${task.id}')" title="归档此任务">📦 归档</button>
                 </div>
             ` : '';
 
@@ -3804,7 +3804,7 @@
 
             // 已归档 badge
             const archivedBadge = is已归档 ? `
-                <span class="archived-badge">📦 Archived</span>
+                <span class="archived-badge">📦 归档d</span>
             ` : '';
 
             // Comment indicator
@@ -3857,7 +3857,7 @@
 
             return `
                 <div class="task-card priority-${task.priority}${is已归档 ? ' archived' : ''}${processingCardClass ? ' ' + processingCardClass : ''}" data-task-id="${task.id}"
-                     draggable="${!isArchived}"
+                     draggable="${!is已归档}"
                      ondragstart="handleDragStart(event, '${task.id}')"
                      ondragend="handleDragEnd(event)"
                      onclick="openTaskDetail('${task.id}')">
@@ -3873,10 +3873,10 @@
                         </div>
                         ${commentIndicator}
                     </div>
-                    ${subtasksTotal > 0 ? `
+                    ${subtasks总数 > 0 ? `
                         <div class="task-subtasks">
                             <div class="subtask-progress">
-                                <span>${subtasksDone}/${subtasksTotal}</span>
+                                <span>${subtasksDone}/${subtasks总数}</span>
                                 <div class="progress-bar">
                                     <div class="progress-fill" style="width: ${progress}%"></div>
                                 </div>
@@ -4218,7 +4218,7 @@
         // === AUTO-SAVE FUNKTION ===
         async function autoSave(action) {
             if (!STATE.token || !STATE.user) {
-                showToast('warning', 'Not logged in - changes not saved');
+                showToast('warning', '尚未登录 GitHub - changes not saved');
                 markAsChanged();
                 return;
             }
@@ -4265,8 +4265,8 @@
         function addActivity(text, type = 'updated') {
             STATE.data.activities = STATE.data.activities || [];
             
-            // Parse the text to extract 个任务 name (format: "📦 Archived: Task Name" or similar)
-            const 个任务Match = text.match(/:\s*(.+)$/) || text.match(/Archived\s+\d+\s+tasks?/);
+            // Parse the text to extract 个任务 name (format: "📦 归档d: Task Name" or similar)
+            const 个任务Match = text.match(/:\s*(.+)$/) || text.match(/已归档\s+\d+\s+tasks?/);
             const 个任务Name = 个任务Match ? 个任务Match[1] || 个任务Match[0] : text;
             
             STATE.data.activities.unshift({
@@ -4287,14 +4287,14 @@
                 `<button class="filter-btn" data-filter="${p.id}" onclick="filterByProject('${p.id}')">${p.icon} ${p.name}</button>`
             ).join('');
             container.innerHTML = `
-                <button class="filter-btn active" data-filter="all" onclick="filterByProject('all')">All projects</button>
+                <button class="filter-btn active" data-filter="all" onclick="filterByProject('all')">全部项目</button>
                 ${projectButtons}
             `;
         }
 
         let currentFilter = 'all';
         let searchQuery = '';
-        let showArchivedInSearch = false;
+        let show已归档InSearch = false;
 
         // === ARCHIVE FUNCTIONS ===
         function archiveTask(taskId) {
@@ -4302,7 +4302,7 @@
             if (task) {
                 个任务.archived = true;
                 个任务.archivedAt = new Date().toISOString();
-                addActivity(`📦 Archived: ${task.title}`, 'archive');
+                addActivity(`📦 归档d: ${task.title}`, 'archive');
                 renderTasks();
                 saveToGitHub();
             }
@@ -4336,43 +4336,43 @@
             
             addActivity(`📦 已归档 ${count} 个任务${count > 1 ? 's' : ''} from Done`, 'archive');
             renderTasks();
-            autoSave(`Archive ${count} 个任务${count > 1 ? 's' : ''}`);
+            autoSave(`归档 ${count} 个任务`);
             showToast(`已归档 ${count} 个任务${count > 1 ? 's' : ''}`, 'success');
             
             // Check if we need to move old 个任务s to archive files
-            checkAndMoveOldArchivedTasks();
+            checkAndMoveOld已归档Tasks();
         }
         
         // === TASK 6: ARCHIV-STRATEGIE ===
         let archivedTasksLoaded = false;
         let archiveIndex = null;
         
-        async function checkAndMoveOldArchivedTasks() {
+        async function checkAndMoveOld已归档Tasks() {
             const now = new Date();
             const cutoffDate = new Date(now.getTime() - (90 * 24 * 60 * 60 * 1000)); // 90 days ago
             
-            const oldArchivedTasks = STATE.data.tasks.filter(t => 
+            const old已归档Tasks = STATE.data.tasks.filter(t => 
                 t.archived && 
                 t.archivedAt && 
                 new Date(t.archivedAt) < cutoffDate
             );
             
-            if (oldArchivedTasks.length === 0) return;
+            if (old已归档Tasks.length === 0) return;
             
             // Group by month
             const byMonth = {};
-            oldArchivedTasks.forEach(task => {
+            old已归档Tasks.forEach(task => {
                 const date = new Date(task.archivedAt);
                 const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
                 if (!byMonth[key]) byMonth[key] = [];
                 byMonth[key].push(task);
             });
             
-            console.log(`Moving ${oldArchivedTasks.length} old archived 个任务s to archive files`);
+            console.log(`Moving ${old已归档Tasks.length} old archived 个任务s to archive files`);
             
             // For now, just mark them as offloaded (actual file operations would need backend)
-            oldArchivedTasks.forEach(task => {
-                个任务.offloadedToArchive = true;
+            old已归档Tasks.forEach(task => {
+                task.offloadedToArchive = true;
             });
             
             // Update archive index
@@ -4399,7 +4399,7 @@
             archiveIndex.lastUpdated = new Date().toISOString();
         }
         
-        async function loadArchivedTasks() {
+        async function load已归档Tasks() {
             if (archivedTasksLoaded) return;
             
             showToast('info', 'Loading archived 个任务s...');
@@ -4423,7 +4423,7 @@
             }
         }
         
-        function exportArchivedTasksCSV() {
+        function export已归档TasksCSV() {
             const archivedTasks = STATE.data.tasks.filter(t => t.archived);
             
             if (archivedTasks.length === 0) {
@@ -4432,7 +4432,7 @@
             }
             
             // CSV Header
-            const headers = ['ID', 'Title', 'Description', 'Status', 'Priority', 'Project', 'Tags', 'Created', 'Completed', 'Archived'];
+            const headers = ['ID', 'Title', 'Description', 'Status', 'Priority', 'Project', 'Tags', 'Created', 'Completed', '已归档'];
             
             // CSV Rows
             const rows = archivedTasks.map(task => [
@@ -4462,7 +4462,7 @@
         
         function showArchiveView() {
             // Load archived 个任务s if not already loaded
-            loadArchivedTasks();
+            load已归档Tasks();
             
             const archivedTasks = STATE.data.tasks.filter(t => t.archived);
             
@@ -4472,7 +4472,7 @@
             dialog.innerHTML = `
                 <div class="modal" style="max-width: 700px; max-height: 80vh;">
                     <div class="modal-header">
-                        <h2 class="modal-title">📦 Archive (${archivedTasks.length} 个任务s)</h2>
+                        <h2 class="modal-title">📦 归档 (${archivedTasks.length} 个任务s)</h2>
                         <button class="modal-close" onclick="closeArchiveView()">&times;</button>
                     </div>
                     <div class="modal-body" style="overflow-y: auto; max-height: 50vh;">
@@ -4482,7 +4482,7 @@
                                 <div>
                                     <strong>${task.title}</strong>
                                     <div style="font-size: 0.8rem; color: var(--text-secondary);">
-                                        Archived: ${new Date(task.archivedAt).toLocaleDateString()}
+                                        已归档: ${new Date(task.archivedAt).toLocaleDateString()}
                                     </div>
                                 </div>
                                 <button class="btn btn-secondary btn-small" onclick="unarchiveTask('${task.id}'); closeArchiveView();">
@@ -4493,8 +4493,8 @@
                         }
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" onclick="exportArchivedTasksCSV()">📥 Export CSV</button>
-                        <button class="btn btn-primary" onclick="closeArchiveView()">Close</button>
+                        <button class="btn btn-secondary" onclick="export已归档TasksCSV()">📥 导出 CSV</button>
+                        <button class="btn btn-primary" onclick="closeArchiveView()">关闭</button>
                     </div>
                 </div>
             `;
@@ -4507,7 +4507,7 @@
         }
 
         function toggleArchiveSearch(enabled) {
-            showArchivedInSearch = enabled;
+            show已归档InSearch = enabled;
             renderTasks();
             if (searchQuery) {
                 applySearchFilter();
@@ -4518,7 +4518,7 @@
             searchQuery = query.toLowerCase().trim();
             
             // Re-render 个任务s if archive search is enabled (to show/hide archived 个任务s)
-            if (showArchivedInSearch) {
+            if (show已归档InSearch) {
                 renderTasks();
             }
             
@@ -4591,7 +4591,7 @@
             searchQuery = '';
             
             // Re-render to hide archived 个任务s when search is cleared
-            if (showArchivedInSearch) {
+            if (show已归档InSearch) {
                 renderTasks();
             }
             
@@ -5393,13 +5393,13 @@
             } else if (diff < 0) {
                 html += `• 删除d ${Math.abs(diff)} 个任务(s)<br>`;
             }
-            html += `• Total 个任务s: ${current}`;
+            html += `• 总数 个任务s: ${current}`;
 
             return html;
         }
 
         async function commitChanges() {
-            const message = document.getElementById('commit-message').value.trim() || 'Update 个任务s via 任务控制台';
+            const message = document.getElementById('commit-message').value.trim() || '通过任务控制台更新任务';
 
             document.getElementById('commit-btn-text').textContent = 'Saving...';
             document.getElementById('commit-spinner').style.display = 'inline-block';
@@ -5416,7 +5416,7 @@
             }
         }
 
-        // === ACTIVITY TOGGLE ===
+        // === 动态 TOGGLE ===
         function toggleActivity() {
             const sidebar = document.getElementById('activity-sidebar');
             const icon = document.getElementById('activity-toggle-icon');
@@ -5703,7 +5703,7 @@
                             ▶ Just Execute (stays available)
                         </button>
                         <button class="btn btn-secondary" style="width: 100%;" onclick="archiveFromDialog('${taskId}')">
-                            📦 Archive Task
+                            📦 归档 Task
                         </button>
                     </div>
                 </div>
@@ -5827,7 +5827,7 @@
             renderScheduledTasks();
             renderTasks();
             autoSave(`Auto-execute scheduled 个任务 "${task.title}"`);
-            showToast('success', `Scheduled 个任务 "${task.title}" is now in progress!`);
+            showToast('success', `定时任务“${task.title}”已进入进行中`);
         }
 
         function openScheduledTaskModal() {
@@ -5847,7 +5847,7 @@
             dialog.innerHTML = `
                 <div class="modal" style="max-width: 500px;">
                     <div class="modal-header">
-                        <h2 class="modal-title">📅 Schedule Task</h2>
+                        <h2 class="modal-title">📅 创建定时任务</h2>
                         <button class="modal-close" onclick="closeScheduledTaskDialog()">&times;</button>
                     </div>
                     <div class="modal-body">
@@ -5860,7 +5860,7 @@
                             <textarea class="form-input" id="scheduled-description" rows="2" placeholder="任务描述"></textarea>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Scheduled For</label>
+                            <label class="form-label">计划时间</label>
                             <input type="datetime-local" class="form-input" id="scheduled-datetime" value="${dateStr}">
                         </div>
                         <div class="form-group">
@@ -5874,7 +5874,7 @@
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" onclick="closeScheduledTaskDialog()">取消</button>
-                        <button class="btn btn-primary" onclick="saveScheduledTask()">Schedule Task</button>
+                        <button class="btn btn-primary" onclick="saveScheduledTask()">创建定时任务</button>
                     </div>
                 </div>
             `;
@@ -5982,7 +5982,7 @@
         function handleCronDrop(event) {
             event.preventDefault();
             event.currentTarget.classList.remove('drag-over');
-            // Crons dropped back on Recurring - do nothing
+            // Crons dropped back on 循环任务 - do nothing
         }
         
         // Extended handleDrop for Cron drops
@@ -6688,7 +6688,7 @@
                 STATE.crons = STATE.crons || [];
                 STATE.crons.push(newCron);
                 
-                // Archive original 个任务
+                // 归档原任务
                 个任务.archived = true;
                 个任务.archivedAt = new Date().toISOString();
                 个任务.archivedReason = 'Converted to cron: ' + newCron.id;
@@ -6730,7 +6730,7 @@
                 STATE.crons = STATE.crons || [];
                 STATE.crons.push(newCron.job || newCron);
                 
-                // Archive original 个任务
+                // 归档原任务
                 个任务.archived = true;
                 个任务.archivedAt = new Date().toISOString();
                 个任务.archivedReason = 'Converted to cron: ' + (newCron.id || newCron.job?.id);

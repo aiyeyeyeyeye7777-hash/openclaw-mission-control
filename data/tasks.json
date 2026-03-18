@@ -277,7 +277,8 @@
       ],
       "priority": "low",
       "comments": [],
-      "createdAt": "2026-01-01T00:00:02Z"
+      "createdAt": "2026-01-01T00:00:02Z",
+      "sortOrder": 0
     },
     {
       "id": "template_1773816682277",
@@ -306,7 +307,7 @@
       "priority": "high",
       "createdAt": "2026-03-18T06:52:24.816Z",
       "isTemplate": false,
-      "status": "in_progress",
+      "status": "backlog",
       "createdFromTemplate": "template_1773816682277",
       "sortOrder": 0
     }
@@ -330,6 +331,14 @@
       "type": "moved",
       "actor": "aiyeyeyeyeye7777-hash",
       "task": "测试：Mission Control 自动执行",
+      "from": "in_progress",
+      "to": "backlog",
+      "time": "just now"
+    },
+    {
+      "type": "moved",
+      "actor": "aiyeyeyeyeye7777-hash",
+      "task": "测试：Mission Control 自动执行",
       "from": "backlog",
       "to": "in_progress",
       "time": "just now"
@@ -347,5 +356,5 @@
       "time": "just now"
     }
   ],
-  "lastUpdated": "2026-03-18T06:52:33.705Z"
+  "lastUpdated": "2026-03-18T07:09:21.126Z"
 }
